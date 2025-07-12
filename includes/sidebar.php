@@ -4,7 +4,7 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="http://localhost/ivs/">
                 <div class="sidebar-brand-icon ">
-                <img src="isv/../src/images/dar_logo.png" alt="Logo" style="width: 65px; height: 65px;">
+                <img src="isv/../src/images/dar_logo.png" alt="Logo" style="width: 70px; height: 55px;">
                 </div>
                 <div class="sidebar-brand-text mx-3">ISAMS <sup>1.0</sup></div>
             </a>

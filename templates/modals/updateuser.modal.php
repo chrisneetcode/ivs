@@ -28,7 +28,7 @@
             <select id="update_userlevel" name="userlevel" class="form-select" required>
               <option value="" disabled selected>Select user level</option>
               <option value="Admin">Admin</option>
-              <option value="Staff">Staff</option>
+              <option value="Staff">GSS Staff</option>
             </select>
           </div>
         </div>
