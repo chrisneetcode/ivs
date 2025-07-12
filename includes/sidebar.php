@@ -2,11 +2,11 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="http://localhost/ivs/">
                 <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+                <img src="isv/../src/images/dar_logo.png" alt="Logo" style="width: 65px; height: 65px;">
                 </div>
-                <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+                <div class="sidebar-brand-text mx-3">ISAMS <sup>1</sup></div>
             </a>
 
             <!-- Divider -->
@@ -14,7 +14,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="http://localhost/ivs/">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -61,7 +61,12 @@
                     </div>
                 </div>
             </li>
-
+                        <!-- Nav Item - Tables -->
+            <li class="nav-item <?= $_GET['page'] === 'manageuser' ? 'active' : '' ?>">
+                <a class="nav-link" href="index.php?page=manageuser">
+                    <i class="fas fa-users-cog"></i>
+                    <span>Manage User</span></a>
+            </li>
             <!-- Divider -->
             <hr class="sidebar-divider">
 
