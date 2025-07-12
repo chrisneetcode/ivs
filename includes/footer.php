@@ -15,4 +15,5 @@
     <script src="<?= base_url('js/demo/chart-pie-demo.js') ?>"></script>
 
 <!-- Main JS -->
-<script src="<?= base_url('js/main.js') ?>"></script>
+    <script src="/ivs/js/main.js?v=1"></script>
+
