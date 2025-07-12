@@ -24,5 +24,10 @@
 
   <!-- Optional: Your global custom styles -->
   <link href="<?= base_url('css/custom.css') ?>" rel="stylesheet">
+
+  <!-- Style CSS -->
+   <link rel="stylesheet" href="<?= base_url('css/style.css') ?>">
+
+   
 </head>
 <body>

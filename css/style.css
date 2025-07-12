@@ -1,0 +1,51 @@
+/* Global dark mode base */
+body.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+/* Text color */
+body.dark-mode, 
+body.dark-mode .text-dark,
+body.dark-mode .card,
+body.dark-mode .sidebar,
+body.dark-mode .navbar,
+body.dark-mode .dropdown-menu,
+body.dark-mode .modal-content,
+body.dark-mode th,
+body.dark-mode td {
+  color: #e0e0e0 !important;
+}
+
+/* Backgrounds */
+body.dark-mode .bg-white,
+body.dark-mode .bg-light,
+body.dark-mode .card,
+body.dark-mode .dropdown-menu,
+body.dark-mode .modal-content,
+body.dark-mode .table,
+body.dark-mode .navbar,
+body.dark-mode .sidebar,
+body.dark-mode .form-control {
+  background-color: #1e1e1e !important;
+}
+
+/* Borders */
+body.dark-mode .card,
+body.dark-mode .modal-content,
+body.dark-mode .form-control {
+  border-color: #333 !important;
+}
+
+/* Sidebar links */
+body.dark-mode .sidebar a {
+  color: #ccc;
+}
+body.dark-mode .sidebar a:hover {
+  color: #fff;
+}
+
+/* Optional: override table striping */
+body.dark-mode .table-striped tbody tr:nth-of-type(odd) {
+  background-color: #2a2a2a;
+}

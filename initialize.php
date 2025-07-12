@@ -1,4 +1,5 @@
 <?php
+// Developer data (for fallback or debug use)
 $dev_data = [
     'id' => '-1',
     'firstname' => 'Developer',
@@ -11,21 +12,18 @@ $dev_data = [
 ];
 if (!defined('dev_data')) define('dev_data', $dev_data);
 
-// Application root path (used for internal includes)
+// App root path (for internal PHP includes)
 if (!defined('base_app')) define('base_app', str_replace('\\', '/', __DIR__) . '/');
 
-// Base URL generator (dynamic path based on current location)
+// Static base URL (reliable for all pages/assets)
 if (!function_exists('base_url')) {
     function base_url($path = '') {
-        $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? "https://" : "http://";
-        $host = $_SERVER['HTTP_HOST'];
-        $dir = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/\\');
-        return $protocol . $host . $dir . '/' . ltrim($path, '/');
+        return '/ivs/' . ltrim($path, '/');
     }
 }
 
-// Database configuration
-if (!defined('DB_SERVER')) define('DB_SERVER', 'localhost');
+// Database config
+if (!defined('DB_SERVER'))   define('DB_SERVER', 'localhost');
 if (!defined('DB_USERNAME')) define('DB_USERNAME', 'root');
 if (!defined('DB_PASSWORD')) define('DB_PASSWORD', '');
-if (!defined('DB_NAME')) define('DB_NAME', 'ims_db');
+if (!defined('DB_NAME'))     define('DB_NAME', 'ims_db');

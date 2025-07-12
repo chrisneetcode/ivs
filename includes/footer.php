@@ -13,3 +13,6 @@
 <!-- Demo Charts -->
     <script src="<?= base_url('js/demo/chart-area-demo.js') ?>"></script>
     <script src="<?= base_url('js/demo/chart-pie-demo.js') ?>"></script>
+
+<!-- Main JS -->
+<script src="<?= base_url('js/main.js') ?>"></script>
