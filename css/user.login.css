@@ -1,22 +1,38 @@
 .gradient-custom-2 {
-/* fallback for old browsers */
-background: #fccb90;
+  /* Replace gradient with image */
+  background-image: url('/ivs/src/images/bg4.jpg'); /* 🔁 Put your image path here */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 
-/* Chrome 10-25, Safari 5.1-6 */
-background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
-
-/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+  /* Optional fallback background color */
+  background-color: #fccb90;
 }
 
-@media (min-width: 768px) {
-.gradient-form {
-height: 100vh !important;
-}
-}
 @media (min-width: 769px) {
 .gradient-custom-2 {
 border-top-right-radius: .3rem;
 border-bottom-right-radius: .3rem;
 }
 }
+
+         .login-btn {background-image: linear-gradient(to right, #4AC29A 0%, #BDFFF3  51%, #4AC29A  100%)}
+         .login-btn {
+            margin: 10px;
+            padding: 15px 45px;
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;            
+            box-shadow: 0 0 20px #eee;
+            border-radius: 10px;
+            display: block;
+          }
+
+          .login-btn:hover {
+            background-position: right center; /* change the direction of the change here */
+            color: #fff;
+            text-decoration: none;
+          }
+         
