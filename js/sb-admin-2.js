@@ -1,56 +1,71 @@
-(function($) {
-  "use strict"; // Start of use strict
+"use strict";
 
-  // Toggle the side navigation
-  $("#sidebarToggle, #sidebarToggleTop").on('click', function(e) {
-    $("body").toggleClass("sidebar-toggled");
-    $(".sidebar").toggleClass("toggled");
-    if ($(".sidebar").hasClass("toggled")) {
-      $('.sidebar .collapse').collapse('hide');
-    };
-  });
-
-  // Close any open menu accordions when window is resized below 768px
-  $(window).resize(function() {
-    if ($(window).width() < 768) {
-      $('.sidebar .collapse').collapse('hide');
-    };
-    
-    // Toggle the side navigation when window is resized below 480px
-    if ($(window).width() < 480 && !$(".sidebar").hasClass("toggled")) {
-      $("body").addClass("sidebar-toggled");
-      $(".sidebar").addClass("toggled");
-      $('.sidebar .collapse').collapse('hide');
-    };
-  });
-
-  // Prevent the content wrapper from scrolling when the fixed side navigation hovered over
-  $('body.fixed-nav .sidebar').on('mousewheel DOMMouseScroll wheel', function(e) {
-    if ($(window).width() > 768) {
-      var e0 = e.originalEvent,
-        delta = e0.wheelDelta || -e0.detail;
-      this.scrollTop += (delta < 0 ? 1 : -1) * 30;
-      e.preventDefault();
+// Sidebar toggle
+document.querySelectorAll("#sidebarToggle, #sidebarToggleTop").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.body.classList.toggle("sidebar-toggled");
+    const sidebar = document.querySelector(".sidebar");
+    if (sidebar) {
+      sidebar.classList.toggle("toggled");
+      if (sidebar.classList.contains("toggled")) {
+        sidebar.querySelectorAll(".collapse").forEach(collapse => {
+          if (typeof bootstrap !== 'undefined') {
+            const bsCollapse = bootstrap.Collapse.getOrCreateInstance(collapse);
+            bsCollapse.hide();
+          }
+        });
+      }
     }
   });
+});
 
-  // Scroll to top button appear
-  $(document).on('scroll', function() {
-    var scrollDistance = $(this).scrollTop();
-    if (scrollDistance > 100) {
-      $('.scroll-to-top').fadeIn();
-    } else {
-      $('.scroll-to-top').fadeOut();
-    }
-  });
+// Responsive behavior on resize
+window.addEventListener("resize", () => {
+  if (window.innerWidth < 768) {
+    document.querySelectorAll('.sidebar .collapse').forEach(collapse => {
+      if (typeof bootstrap !== 'undefined') {
+        const bsCollapse = bootstrap.Collapse.getOrCreateInstance(collapse);
+        bsCollapse.hide();
+      }
+    });
+  }
 
-  // Smooth scrolling using jQuery easing
-  $(document).on('click', 'a.scroll-to-top', function(e) {
-    var $anchor = $(this);
-    $('html, body').stop().animate({
-      scrollTop: ($($anchor.attr('href')).offset().top)
-    }, 1000, 'easeInOutExpo');
+  if (window.innerWidth < 480 && !document.querySelector(".sidebar").classList.contains("toggled")) {
+    document.body.classList.add("sidebar-toggled");
+    document.querySelector(".sidebar").classList.add("toggled");
+    document.querySelectorAll('.sidebar .collapse').forEach(collapse => {
+      if (typeof bootstrap !== 'undefined') {
+        const bsCollapse = bootstrap.Collapse.getOrCreateInstance(collapse);
+        bsCollapse.hide();
+      }
+    });
+  }
+});
+
+// Scroll to Top button behavior
+document.addEventListener("scroll", () => {
+  const scrollBtn = document.querySelector('.scroll-to-top');
+  if (scrollBtn) {
+    scrollBtn.style.display = window.scrollY > 100 ? 'inline' : 'none';
+  }
+});
+
+// Smooth scroll (native) for scroll-to-top
+document.querySelectorAll('a.scroll-to-top').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
     e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
   });
+});
 
-})(jQuery); // End of use strict
+// Optional: prevent sidebar from scrolling when fixed-nav
+const fixedNavSidebar = document.querySelector('body.fixed-nav .sidebar');
+if (fixedNavSidebar && window.innerWidth > 768) {
+  fixedNavSidebar.addEventListener('wheel', (e) => {
+    e.preventDefault();
+    fixedNavSidebar.scrollTop += e.deltaY < 0 ? -30 : 30;
+  }, { passive: false });
+}

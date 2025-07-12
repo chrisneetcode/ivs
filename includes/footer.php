@@ -2,17 +2,14 @@
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
 <!-- Bootstrap Bundle (includes Popper) -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- jQuery Easing -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+<!-- Chart.js 4.x -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 
 <!-- SB Admin 2 -->
-<script src="/ivs/js/sb-admin-2.min.js"></script>
-
-<!-- Chart.js -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+    <script src="<?= base_url('js/sb-admin-2.min.js') ?>"></script>
 
 <!-- Demo Charts -->
-<script src="/ivs/js/demo/chart-area-demo.js"></script>
-<script src="/ivs/js/demo/chart-pie-demo.js"></script>
+    <script src="<?= base_url('js/demo/chart-area-demo.js') ?>"></script>
+    <script src="<?= base_url('js/demo/chart-pie-demo.js') ?>"></script>
