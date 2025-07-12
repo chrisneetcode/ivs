@@ -14,15 +14,16 @@ if (empty($username) || empty($password)) {
     exit;
 }
 
-$stmt = $conn->prepare("SELECT id, username, password FROM tbl_user WHERE username = ?");
+$stmt = $conn->prepare("SELECT id, username, password, userlevel FROM tbl_user WHERE username = ?");
 $stmt->bind_param("s", $username);
 $stmt->execute();
 $result = $stmt->get_result();
 $user = $result->fetch_assoc();
 
-if ($user && $password === $user['password']) {
+    if ($user && password_verify($password, $user['password'])) {
     $_SESSION['user_id'] = $user['id'];
     $_SESSION['username'] = $user['username'];
+    $_SESSION['userlevel'] = $user['userlevel'];
     header("Location: ../index.php?page=dashboard");
     exit;
 } else {

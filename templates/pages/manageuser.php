@@ -1,8 +1,19 @@
+<?php
+require_once __DIR__ . '/../../includes/conn.php';
+
+$db = new DBConnection();
+$conn = $db->conn;
+
+$query = "SELECT id, username, userlevel FROM tbl_user";
+$result = $conn->query($query);
+?>
+
 <div class="container-fluid">
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Manage Users</h1>
-        <a href="#" class="btn btn-sm btn-primary shadow-sm"><i class="fas fa-user-plus"></i> Add User</a>
+        <a href="#" class="btn btn-sm btn-primary shadow-sm" data-bs-toggle="modal" data-bs-target="#addUserModal">
+            <i class="fas fa-user-plus"></i> Add User</a>
     </div>
 
     <!-- User Table -->
@@ -16,24 +27,28 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Full Name</th>
                             <th>Username</th>
                             <th>Role</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Ana Santos</td>
-                            <td>anas</td>
-                            <td>Admin</td>
-                            <td>
-                                <button class="btn btn-sm btn-info"><i class="fas fa-edit"></i></button>
-                                <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
-                            </td>
-                        </tr>
-                        <!-- More rows later -->
+                        <?php if ($result && $result->num_rows > 0): ?>
+                            <?php while ($row = $result->fetch_assoc()): ?>
+                                <tr>
+                                    <td><?= htmlspecialchars($row['id']) ?></td>
+                                    <td><?= htmlspecialchars($row['username']) ?></td>
+                                    <td><?= htmlspecialchars($row['userlevel']) ?></td>
+                                    <td>
+                                        <button class="btn btn-sm btn-info"><i class="fas fa-edit"></i></button>
+                                    </td>
+                                </tr>
+                            <?php endwhile; ?>
+                        <?php else: ?>
+                            <tr>
+                                <td colspan="4" class="text-center">No users found.</td>
+                            </tr>
+                        <?php endif; ?>
                     </tbody>
                 </table>
             </div>

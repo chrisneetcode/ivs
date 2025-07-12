@@ -3,10 +3,10 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="http://localhost/ivs/">
-                <div class="sidebar-brand-icon rotate-n-15">
+                <div class="sidebar-brand-icon ">
                 <img src="isv/../src/images/dar_logo.png" alt="Logo" style="width: 65px; height: 65px;">
                 </div>
-                <div class="sidebar-brand-text mx-3">ISAMS <sup>1</sup></div>
+                <div class="sidebar-brand-text mx-3">ISAMS <sup>1.0</sup></div>
             </a>
 
             <!-- Divider -->
@@ -27,39 +27,19 @@
                 Interface
             </div>
 
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Components</span>
+                                    <!-- Nav Item - Stocks -->
+            <li class="nav-item <?= $currentPage === 'managestocks' ? 'active' : '' ?>">
+                <a class="nav-link" href="index.php?page=managestocks">
+                    <i class="fas fa-truck"></i>
+                    <span>Manage Stocks</span>
                 </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="buttons.html">Buttons</a>
-                        <a class="collapse-item" href="cards.html">Cards</a>
-                    </div>
-                </div>
             </li>
-
-            <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Utilities</span>
+                                    <!-- Nav Item - Supply -->
+            <li class="nav-item <?= $currentPage === 'managesupply' ? 'active' : '' ?>">
+                <a class="nav-link" href="index.php?page=managesupply">
+                    <i class="fas fa-boxes"></i>
+                    <span>Manage Supply</span>
                 </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="utilities-color.html">Colors</a>
-                        <a class="collapse-item" href="utilities-border.html">Borders</a>
-                        <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                        <a class="collapse-item" href="utilities-other.html">Other</a>
-                    </div>
-                </div>
             </li>
                         <!-- Nav Item - Tables -->
             <li class="nav-item <?= $currentPage === 'manageuser' ? 'active' : '' ?>">

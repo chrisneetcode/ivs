@@ -44,6 +44,8 @@ require_once __DIR__ . "/includes/header.php";
         <!-- End Main Content -->
 
         <?php include __DIR__ . "/templates/modals/logout.modal.php"; ?>
+        <?php include __DIR__ . "/templates/modals/adduser.modal.php"; ?>
+
         <?php include __DIR__ . "/includes/footer.php"; ?>
 
     </div>

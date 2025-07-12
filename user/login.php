@@ -7,10 +7,10 @@ if (isset($_SESSION['user_id'])) {
     header("Location: ../index.php?page=dashboard");
     exit;
 }
-?>
-<?php 
 include '../includes/header.php'; 
+
 ?>
+
 <section class="h-100 gradient-form" style="background-color: #eee;">
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
@@ -48,7 +48,7 @@ include '../includes/header.php';
                   </div>
 
                   <div class="text-center pt-1 mb-5 pb-1">
-                    <button type="submit" class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3">Log in</button>
+                    <button type="submit" class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3 ">Log in</button>
                   </div>
                 </form>
               </div>
