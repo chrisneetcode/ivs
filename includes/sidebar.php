@@ -62,10 +62,11 @@
                 </div>
             </li>
                         <!-- Nav Item - Tables -->
-            <li class="nav-item <?= $_GET['page'] === 'manageuser' ? 'active' : '' ?>">
+            <li class="nav-item <?= $currentPage === 'manageuser' ? 'active' : '' ?>">
                 <a class="nav-link" href="index.php?page=manageuser">
                     <i class="fas fa-users-cog"></i>
-                    <span>Manage User</span></a>
+                    <span>Manage User</span>
+                </a>
             </li>
             <!-- Divider -->
             <hr class="sidebar-divider">

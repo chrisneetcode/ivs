@@ -6,8 +6,9 @@ if (!isset($_SESSION['user_id'])) {
     exit;
 }
 
-$page = $_GET['page'] ?? 'dashboard';
-$page = basename($page);
+$currentPage = $_GET['page'] ?? 'dashboard';
+$page = basename($currentPage);
+
 
 $page_path = __DIR__ . "/templates/pages/{$page}.php";
 
