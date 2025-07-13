@@ -62,7 +62,7 @@
               name="mobile_number"
               id="update_mobile_number"
               class="form-control"
-required oninput="this.value = this.value.replace(/[^0-9]/g, '').substring(0, 10)" maxlength="10"
+required oninput="this.value = this.value.replace(/[^0-9]/g, '').substring(0, 11)" maxlength="11"
             >
           </div>
           <div class="mb-3">
