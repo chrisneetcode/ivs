@@ -26,7 +26,13 @@
             <div class="sidebar-heading">
                 Interface
             </div>
-
+                                    <!-- Nav Item - Supplier -->
+            <li class="nav-item <?= $currentPage === 'managesupplier' ? 'active' : '' ?>">
+                <a class="nav-link" href="index.php?page=managesupplier">
+                    <i class="fas fa-boxes"></i>
+                    <span>Manage Supplier</span>
+                </a>
+            </li>
                                     <!-- Nav Item - Stocks -->
             <li class="nav-item <?= $currentPage === 'managestocks' ? 'active' : '' ?>">
                 <a class="nav-link" href="index.php?page=managestocks">
@@ -34,13 +40,7 @@
                     <span>Manage Stocks</span>
                 </a>
             </li>
-                                    <!-- Nav Item - Supply -->
-            <li class="nav-item <?= $currentPage === 'managesupply' ? 'active' : '' ?>">
-                <a class="nav-link" href="index.php?page=managesupplier">
-                    <i class="fas fa-boxes"></i>
-                    <span>Manage Supply</span>
-                </a>
-            </li>
+
                         <!-- Nav Item - Tables -->
             <li class="nav-item <?= $currentPage === 'manageuser' ? 'active' : '' ?>">
                 <a class="nav-link" href="index.php?page=manageuser">
