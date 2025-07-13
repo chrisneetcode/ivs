@@ -1,6 +1,6 @@
 <!-- Add User Modal -->
 <div class="modal fade" id="addUserModal" tabindex="-1" aria-labelledby="addUserModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog modal-lg" role="document">
     <form method="POST" action="/ivs/includes/modalsconn/user.add.php">
       <div class="modal-content">
         <div class="modal-header">

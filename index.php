@@ -46,6 +46,8 @@ require_once __DIR__ . "/includes/header.php";
         <?php include __DIR__ . "/templates/modals/logout.modal.php"; ?>
         <?php include __DIR__ . "/templates/modals/adduser.modal.php"; ?>
         <?php include __DIR__ . "/templates/modals/updateuser.modal.php"; ?>
+        <?php include __DIR__ . "/templates/modals/updatesupplier.modal.php"; ?>
+        <?php include __DIR__ . "/templates/modals/addsupplier.modal.php"; ?>
 
         <?php include __DIR__ . "/includes/footer.php"; ?>
 

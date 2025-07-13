@@ -36,7 +36,7 @@
             </li>
                                     <!-- Nav Item - Supply -->
             <li class="nav-item <?= $currentPage === 'managesupply' ? 'active' : '' ?>">
-                <a class="nav-link" href="index.php?page=managesupply">
+                <a class="nav-link" href="index.php?page=managesupplier">
                     <i class="fas fa-boxes"></i>
                     <span>Manage Supply</span>
                 </a>
