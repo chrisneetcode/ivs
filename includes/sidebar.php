@@ -26,12 +26,88 @@
             <div class="sidebar-heading">
                 Interface
             </div>
-                                    <!-- Nav Item - Supplier -->
-            <li class="nav-item <?= $currentPage === 'managesupplier' ? 'active' : '' ?>">
-                <a class="nav-link" href="index.php?page=managesupplier">
-                    <i class="fas fa-boxes"></i>
-                    <span>Manage Supplier</span>
+                                    <!-- Nav Item - Inventory Management -->
+                        <li class="nav-item <?= ($currentPage === 'manageitems' || $currentPage === '') ? 'active' : '' ?>">
+                <a class="nav-link <?= ($currentPage === 'manageitems' || $currentPage === '') ? '' : 'collapsed' ?>" href="#" data-bs-toggle="collapse" data-bs-target="#inventoryPages"
+                    aria-expanded="<?= ($currentPage === 'manageitems' || $currentPage === '') ? 'true' : 'false' ?>" aria-controls="inventoryPages">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Inventory Management</span>
                 </a>
+                <div id="inventoryPages" class="collapse <?= ($currentPage === 'manageitems' || $currentPage === '') ? 'show' : '' ?>" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Inventory Management:</h6>
+                        <a class="collapse-item <?= $currentPage === 'manageitems' ? 'active' : '' ?>" href="index.php?page=manageitems">Manage Items</a>
+                        <div class="collapse-divider"></div>
+                        <h6 class="collapse-header">Stocks-In:</h6>
+                        <a class="collapse-item" href="">Stock-In Entry</a>
+                        <a class="collapse-item" href="">Stock-In History</a>
+                    </div>
+                </div>
+            </li>
+
+                                                <!-- Nav Item - RIS Management -->
+                <li class="nav-item <?= $currentPage === '' ? 'active' : '' ?>">
+                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#risPages"
+                    aria-expanded="true" aria-controls="risPages">
+                    <i class="fa-solid fa-folder-open"></i>
+                    <span>RIS Management</span>
+                </a>
+                <div id="risPages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">RIS:</h6>
+                        <a class="collapse-item" href="">Create RIS</a>
+                        <a class="collapse-item" href="">RIS List</a>
+                        <a class="collapse-item" href="">RIS Issuance</a>
+                    </div>
+                </div>
+            </li>
+
+                                                            <!-- Nav Item - Stock Ledger -->
+                <li class="nav-item <?= $currentPage === '' ? 'active' : '' ?>">
+                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#stockledgerPages"
+                    aria-expanded="true" aria-controls="stockledgerPages">
+                    <i class="fa-solid fa-folder"></i>
+                    <span>Stock Ledger</span>
+                </a>
+                <div id="stockledgerPages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Stock Ledger:</h6>
+                        <a class="collapse-item" href="">Add Ledger Entry</a>
+                        <a class="collapse-item" href="">Stock Card</a>
+                    </div>
+                </div>
+            </li>
+
+                                                                        <!-- Nav Item - Reports -->
+                <li class="nav-item <?= $currentPage === '' ? 'active' : '' ?>">
+                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#reportsPages"
+                    aria-expanded="true" aria-controls="reportsPages">
+                    <i class="fa-solid fa-print"></i>
+                    <span>Reports</span>
+                </a>
+                <div id="reportsPages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Reports:</h6>
+                        <a class="collapse-item" href="">RSMI Report</a>
+                        <a class="collapse-item" href="">RIS Summary</a>
+                    </div>
+                </div>
+            </li>
+
+                                                                        <!-- Nav Item - Master Data -->
+            <li class="nav-item <?= ($currentPage === 'managesupplier' || $currentPage === 'managedivision') ? 'active' : '' ?>">
+                <a class="nav-link <?= ($currentPage === 'managesupplier' || $currentPage === 'managedivision') ? '' : 'collapsed' ?>" href="#" data-bs-toggle="collapse" data-bs-target="#masterdataPages"
+                    aria-expanded="<?= ($currentPage === 'managesupplier' || $currentPage === 'managedivision') ? 'true' : 'false' ?>" aria-controls="masterdataPages">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Master Data</span>
+                </a>
+                <div id="masterdataPages" class="collapse <?= ($currentPage === 'managesupplier' || $currentPage === 'managedivision') ? 'show' : '' ?>" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Master Data:</h6>
+                        <a class="collapse-item <?= $currentPage === 'managesupplier' ? 'active' : '' ?>" href="index.php?page=managesupplier">Manage Suppliers</a>
+                        <a class="collapse-item <?= $currentPage === 'managedivision' ? 'active' : '' ?>" href="index.php?page=managedivision">Manage Divisions</a>
+                    </div>
+                </div>
             </li>
                                     <!-- Nav Item - Stocks -->
             <li class="nav-item <?= $currentPage === 'managestocks' ? 'active' : '' ?>">
@@ -40,7 +116,6 @@
                     <span>Manage Stocks</span>
                 </a>
             </li>
-
                         <!-- Nav Item - Tables -->
             <li class="nav-item <?= $currentPage === 'manageuser' ? 'active' : '' ?>">
                 <a class="nav-link" href="index.php?page=manageuser">

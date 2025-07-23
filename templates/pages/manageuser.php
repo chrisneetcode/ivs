@@ -73,3 +73,5 @@ if (!empty($_SESSION['user_success'])): ?>
         </div>
     </div>
 </div>
+        <?php include __DIR__ . "/../modals/adduser.modal.php"; ?>
+        <?php include __DIR__ . "/../modals/updateuser.modal.php"; ?>

@@ -40,17 +40,15 @@ require_once __DIR__ . "/includes/header.php";
             </div>
             <!-- End Page Content -->
 
+        <?php include __DIR__ . "/templates/modals/adddivision.modal.php"; ?>
+
         </div>
         <!-- End Main Content -->
-
-        <?php include __DIR__ . "/templates/modals/logout.modal.php"; ?>
-        <?php include __DIR__ . "/templates/modals/adduser.modal.php"; ?>
-        <?php include __DIR__ . "/templates/modals/updateuser.modal.php"; ?>
-        <?php include __DIR__ . "/templates/modals/updatesupplier.modal.php"; ?>
         <?php include __DIR__ . "/templates/modals/addsupplier.modal.php"; ?>
 
+        <?php include __DIR__ . "/templates/modals/logout.modal.php"; ?>
+        
         <?php include __DIR__ . "/includes/footer.php"; ?>
-
     </div>
     <!-- End Content Wrapper -->
 </div>

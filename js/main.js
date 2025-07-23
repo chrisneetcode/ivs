@@ -75,4 +75,18 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-
+// Updating Division Modal
+document.addEventListener('DOMContentLoaded', () => {
+  console.log("DOM fully loaded");
+  document.querySelectorAll('.btn-update-division').forEach(button => {
+    button.addEventListener('click', function () {
+      console.log("Edit button clicked");
+      const id = this.getAttribute('data-id');
+      const name = this.getAttribute('data-name');
+      const designation = this.getAttribute('data-designation');
+      document.getElementById('update_division_id').value = id;
+      document.getElementById('update_name').value = name;
+      document.getElementById('update_designation').value = designation;
+    });
+  });
+});

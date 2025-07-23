@@ -3,10 +3,12 @@
     "bootstrap": "^5.3.7"
   },
   "devDependencies": {
+    "@prettier/plugin-php": "^0.24.0",
     "browser-sync": "^3.0.4",
+    "prettier": "^3.6.2",
     "sass": "^1.89.2"
   },
-    "scripts": {
+  "scripts": {
     "dev": "browser-sync start --proxy 'localhost/ivs' --files 'assets/css/*.css', 'assets/js/*.js', '*.php', 'templates/*.php', 'user/*.php' --watch",
     "sass": "sass --watch assets/scss:assets/css"
   }
