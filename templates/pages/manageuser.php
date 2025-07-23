@@ -7,15 +7,7 @@ $conn = $db->conn;
 $query = "SELECT id, username, userlevel FROM tbl_user";
 $result = $conn->query($query);
 
-if (!empty($_SESSION['user_success'])): ?>
-    <div class="alert alert-success"><?= $_SESSION['user_success'] ?></div>
-    <?php unset($_SESSION['user_success']); ?>
-<?php endif; ?>
 
-<?php if (!empty($_SESSION['user_error'])): ?>
-    <div class="alert alert-danger"><?= $_SESSION['user_error'] ?></div>
-    <?php unset($_SESSION['user_error']); ?>
-<?php endif; 
 ?>
 
 <div class="container-fluid">

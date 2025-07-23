@@ -55,17 +55,6 @@
               <label for="critical_level" class="form-label">Reorder Point</label>
               <input type="number" name="critical_level" id="critical_level" class="form-control" required min="0">
             </div>
-
-            <!-- Status -->
-            <div class="mb-3">
-              <label for="status" class="form-label">Status</label>
-              <select name="status" id="status" class="form-select" required>
-                <option value="Available">Available</option>
-                <option value="Out of Stock">Out of Stock</option>
-                <option value="Not Available">Not Available</option>
-              </select>
-            </div>
-
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
           <button type="submit" class="btn btn-primary">Add New Item</button>

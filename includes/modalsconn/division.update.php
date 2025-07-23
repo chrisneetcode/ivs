@@ -12,7 +12,7 @@ $designation = trim($_POST['designation'] ?? '');
 
 // Basic validation
 if (empty($division_id) || empty($name) || empty($designation)) {
-    $_SESSION['division_error'] = "All fields are required.";
+    $_SESSION['error'] = "All fields are required.";
     header("Location: ../../index.php?page=managedivision");
     exit;
 }
@@ -21,9 +21,9 @@ $stmt = $conn->prepare("UPDATE tbl_division SET division_name=?, designation=? W
 $stmt->bind_param("ssi", $name, $designation, $division_id);
 
 if ($stmt->execute()) {
-    $_SESSION['division_success'] = "Division Information has been Updated Successfully.";
+    $_SESSION['success'] = "Division Information has been Updated Successfully.";
 } else {
-    $_SESSION['division_error'] = "Failed to update division. Please check inputs or try again.";
+    $_SESSION['error'] = "Failed to update division. Please check inputs or try again.";
 }
 
 

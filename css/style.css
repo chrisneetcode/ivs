@@ -3,6 +3,9 @@ body.dark-mode {
   background-color: #121212;
   color: #e0e0e0;
 }
+body {
+  overflow-x: hidden;
+}
 
 /* Text color */
 body.dark-mode, 
@@ -48,4 +51,32 @@ body.dark-mode .sidebar a:hover {
 /* Optional: override table striping */
 body.dark-mode .table-striped tbody tr:nth-of-type(odd) {
   background-color: #2a2a2a;
+}
+
+/* Make success toast green */
+.toast.text-bg-success {
+  background-color: #198754 !important;
+  color: #fff !important;
+}
+
+/* Make error toast red */
+.toast.text-bg-danger {
+  background-color: #dc3545 !important;
+  color: #fff !important;
+}
+
+/* Add subtle entrance animation */
+.toast {
+  animation: slideIn 0.4s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }

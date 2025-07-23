@@ -31,3 +31,16 @@
    
 </head>
 <body>
+
+<!-- Toast Container: Top Center, Auto-size -->
+<div class="position-fixed top-0 start-50 translate-middle-x mt-3" style="z-index: 1060;">
+  <div id="liveToast" class="toast border-0 shadow-lg rounded-3" role="alert" aria-live="assertive" aria-atomic="true" style="width: auto; max-width: 90vw;">
+    <div class="toast-body d-flex justify-content-between align-items-center gap-3 fw-semibold fs-6 px-3 py-2" id="toastMessage">
+      <!-- Message gets inserted here -->
+      <span class="flex-grow-1"></span>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+  </div>
+</div>
+
+

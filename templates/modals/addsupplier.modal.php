@@ -38,15 +38,6 @@
                    title="TIN must be exactly 9 digits"
                    required>
           </div>
-
-          <!-- Date Added -->
-          <div class="mb-3">
-            <label for="date_added" class="form-label">Date Added</label>
-            <input type="date" name="date_added" id="date_added" class="form-control"
-                   value="<?= date('Y-m-d') ?>" required>
-          </div>
-        </div>
-
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
           <button type="submit" class="btn btn-primary">Create Supplier</button>

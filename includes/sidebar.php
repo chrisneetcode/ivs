@@ -27,19 +27,19 @@
                 Interface
             </div>
                                     <!-- Nav Item - Inventory Management -->
-                        <li class="nav-item <?= ($currentPage === 'manageitems' || $currentPage === '') ? 'active' : '' ?>">
-                <a class="nav-link <?= ($currentPage === 'manageitems' || $currentPage === '') ? '' : 'collapsed' ?>" href="#" data-bs-toggle="collapse" data-bs-target="#inventoryPages"
-                    aria-expanded="<?= ($currentPage === 'manageitems' || $currentPage === '') ? 'true' : 'false' ?>" aria-controls="inventoryPages">
+                        <li class="nav-item <?= ($currentPage === 'manageitems' || $currentPage === 'stock-in-entry') ? 'active' : '' ?>">
+                <a class="nav-link <?= ($currentPage === 'manageitems' || $currentPage === 'stock-in-entry') ? '' : 'collapsed' ?>" href="#" data-bs-toggle="collapse" data-bs-target="#inventoryPages"
+                    aria-expanded="<?= ($currentPage === 'manageitems' || $currentPage === 'stock-in-entry') ? 'true' : 'false' ?>" aria-controls="inventoryPages">
                     <i class="fa-solid fa-gear"></i>
                     <span>Inventory Management</span>
                 </a>
-                <div id="inventoryPages" class="collapse <?= ($currentPage === 'manageitems' || $currentPage === '') ? 'show' : '' ?>" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div id="inventoryPages" class="collapse <?= ($currentPage === 'manageitems' || $currentPage === 'stock-in-entry') ? 'show' : '' ?>" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Inventory Management:</h6>
                         <a class="collapse-item <?= $currentPage === 'manageitems' ? 'active' : '' ?>" href="index.php?page=manageitems">Manage Items</a>
                         <div class="collapse-divider"></div>
                         <h6 class="collapse-header">Stocks-In:</h6>
-                        <a class="collapse-item" href="">Stock-In Entry</a>
+                        <a class="collapse-item <?= $currentPage === 'stock-in-entry' ? 'active' : '' ?>" href="index.php?page=stock-in-entry">Stock-In Entry</a>
                         <a class="collapse-item" href="">Stock-In History</a>
                     </div>
                 </div>
@@ -108,13 +108,6 @@
                         <a class="collapse-item <?= $currentPage === 'managedivision' ? 'active' : '' ?>" href="index.php?page=managedivision">Manage Divisions</a>
                     </div>
                 </div>
-            </li>
-                                    <!-- Nav Item - Stocks -->
-            <li class="nav-item <?= $currentPage === 'managestocks' ? 'active' : '' ?>">
-                <a class="nav-link" href="index.php?page=managestocks">
-                    <i class="fas fa-truck"></i>
-                    <span>Manage Stocks</span>
-                </a>
             </li>
                         <!-- Nav Item - Tables -->
             <li class="nav-item <?= $currentPage === 'manageuser' ? 'active' : '' ?>">

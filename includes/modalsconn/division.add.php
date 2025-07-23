@@ -12,7 +12,7 @@ $designation = trim($_POST['designation'] ?? '');
 
 // Basic validation
 if (empty($division_name) || empty($designation)) {
-    $_SESSION['user_error'] = "All fields are required.";
+    $_SESSION['error'] = "All fields are required.";
     header("Location: ../index.php?page=managedivision");
     exit;
 }
@@ -22,9 +22,9 @@ $stmt = $conn->prepare("INSERT INTO tbl_division (division_name, designation) VA
 $stmt->bind_param("ss", $division_name, $designation);
 
 if ($stmt->execute()) {
-    $_SESSION['user_success'] = "User created successfully.";
+    $_SESSION['success'] = "Division created successfully.";
 } else {
-    $_SESSION['user_error'] = "Failed to create user. Maybe Division already exists.";
+    $_SESSION['error'] = "Failed to Create Division. Maybe Division already exists.";
 }
 
 $stmt->close();

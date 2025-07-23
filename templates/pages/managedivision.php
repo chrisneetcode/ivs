@@ -7,15 +7,7 @@ $conn = $db->conn;
 $query = "SELECT division_id, division_name, designation FROM tbl_division";
 $result = $conn->query($query);
 
-if (!empty($_SESSION['division_success'])): ?>
-    <div class="alert alert-success"><?= $_SESSION['division_success'] ?></div>
-    <?php unset($_SESSION['division_success']); ?>
-<?php endif; ?>
 
-<?php if (!empty($_SESSION['division_error'])): ?>
-    <div class="alert alert-danger"><?= $_SESSION['division_error'] ?></div>
-    <?php unset($_SESSION['division_error']); ?>
-<?php endif; 
 ?>
 
 <div class="container-fluid">

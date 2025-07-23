@@ -7,15 +7,7 @@ $conn = $db->conn;
 $query = "SELECT supplier_id, supplier_name, contact_person, mobile_number, tin, date_added FROM tbl_supplier";
 $result = $conn->query($query);
 
-if (!empty($_SESSION['supplier_success'])): ?>
-    <div class="alert alert-success"><?= $_SESSION['supplier_success'] ?></div>
-    <?php unset($_SESSION['supplier_success']); ?>
-<?php endif; ?>
 
-<?php if (!empty($_SESSION['supplier_error'])): ?>
-    <div class="alert alert-danger"><?= $_SESSION['supplier_error'] ?></div>
-    <?php unset($_SESSION['supplier_error']); ?>
-<?php endif; 
 ?>
 
 <div class="container-fluid">
@@ -81,5 +73,6 @@ if (!empty($_SESSION['supplier_success'])): ?>
         </div>
     </div>
 </div>
-        <?php include __DIR__ . "/../modals/addsupplier.modal.php"; ?>
         <?php include __DIR__ . "/../modals/updatesupplier.modal.php"; ?>
+
+        <?php include __DIR__ . "/../modals/addsupplier.modal.php"; ?>

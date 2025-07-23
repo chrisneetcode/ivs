@@ -5,30 +5,32 @@ require_once '../conn.php';
 $db = new DBConnection();
 $conn = $db->conn;
 
-// Get submitted data
-$division_id = trim($_POST['division_id'] ?? '');
-$name = trim($_POST['division_name'] ?? '');
-$designation = trim($_POST['designation'] ?? '');
+// Get and sanitize inputs
+$supplier_id     = trim($_POST['supplier_id'] ?? '');
+$supplier_name   = trim($_POST['supplier_name'] ?? '');
+$contact_person  = trim($_POST['contact_person'] ?? '');
+$mobile_number   = trim($_POST['mobile_number'] ?? '');
+$tin             = trim($_POST['tin'] ?? '');
 
 // Basic validation
-if (empty($division_id) || empty($name) || empty($designation)) {
-    $_SESSION['division_error'] = "All fields are required.";
-    header("Location: ../../index.php?page=managedivision");
+if (empty($supplier_id) || empty($supplier_name) || empty($contact_person) || empty($mobile_number) || empty($tin)) {
+    $_SESSION['error'] = "All fields are required.";
+    header("Location: ../index.php?page=managesupplier");
     exit;
 }
 
-$stmt = $conn->prepare("UPDATE tbl_division SET division_name=?, designation=? WHERE division_id=?");
-$stmt->bind_param("ssi", $name, $designation, $division_id);
+// Update the supplier data
+$stmt = $conn->prepare("UPDATE tbl_supplier SET supplier_name = ?, contact_person = ?, mobile_number = ?, tin = ? WHERE supplier_id = ?");
+$stmt->bind_param("ssssi", $supplier_name, $contact_person, $mobile_number, $tin, $supplier_id);
 
 if ($stmt->execute()) {
-    $_SESSION['division_success'] = "Division Information has been Updated Successfully.";
+    $_SESSION['success'] = "Supplier updated successfully.";
 } else {
-    $_SESSION['division_error'] = "Failed to update division. Please check inputs or try again.";
+    $_SESSION['error'] = "Failed to update supplier. Please try again.";
 }
-
 
 $stmt->close();
 $conn->close();
 
-header("Location: ../../index.php?page=managedivision");
+header("Location: ../index.php?page=managesupplier");
 exit;
