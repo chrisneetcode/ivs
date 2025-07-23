@@ -81,5 +81,5 @@ if (!empty($_SESSION['supplier_success'])): ?>
         </div>
     </div>
 </div>
-
+        <?php include __DIR__ . "/../modals/addsupplier.modal.php"; ?>
         <?php include __DIR__ . "/../modals/updatesupplier.modal.php"; ?>

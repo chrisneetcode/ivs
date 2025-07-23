@@ -6,20 +6,19 @@ $db = new DBConnection();
 $conn = $db->conn;
 
 // Sanitize inputs
-$item_name       = trim($_POST['item_name'] ?? '');
-$description     = trim($_POST['description'] ?? '');
-$unit            = trim($_POST['unit'] ?? '');
-$stock_type      = trim($_POST['stock_type'] ?? '');
-$fund_cluster    = trim($_POST['fund_cluster'] ?? '');
+$item_name        = trim($_POST['item_name'] ?? '');
+$description      = trim($_POST['description'] ?? '');
+$unit             = trim($_POST['unit'] ?? '');
+$fund_cluster     = trim($_POST['fund_cluster'] ?? '');
 $initial_quantity = intval($_POST['initial_quantity'] ?? 0);
-$critical_level  = intval($_POST['critical_level'] ?? 0);
-$status          = trim($_POST['status'] ?? '');
-$date_added      = date('Y-m-d'); // Current date
+$critical_level   = intval($_POST['critical_level'] ?? 0);
+$status           = trim($_POST['status'] ?? '');
+$date_added       = date('Y-m-d'); // Current date
 
 // Basic validation
 if (
     empty($item_name) || empty($description) || empty($unit) ||
-    empty($stock_type) || empty($fund_cluster) || $initial_quantity < 0 ||
+    empty($fund_cluster) || $initial_quantity < 0 ||
     $critical_level < 0 || empty($status)
 ) {
     $_SESSION['item_error'] = "All fields are required.";
@@ -30,15 +29,14 @@ if (
 // Insert into database
 $stmt = $conn->prepare("
     INSERT INTO tbl_item 
-    (item_name, description, unit, stock_type, fund_cluster, initial_quantity, critical_level, date_added, status)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+    (item_name, description, unit, fund_cluster, initial_quantity, critical_level, date_added, status)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?)
 ");
 $stmt->bind_param(
-    "sssssiiss",
+    "ssssiiss",
     $item_name,
     $description,
     $unit,
-    $stock_type,
     $fund_cluster,
     $initial_quantity,
     $critical_level,

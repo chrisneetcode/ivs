@@ -4,7 +4,7 @@ require_once __DIR__ . '/../../includes/conn.php';
 $db = new DBConnection();
 $conn = $db->conn;
 
-$query = "SELECT item_id, item_name, description, unit, stock_type, fund_cluster, initial_quantity, critical_level, date_added, status FROM tbl_item";
+$query = "SELECT item_id, item_name, description, unit, fund_cluster, initial_quantity, critical_level, date_added, status FROM tbl_item";
 $result = $conn->query($query);
 
 if (!empty($_SESSION['item_success'])): ?>
@@ -38,11 +38,11 @@ if (!empty($_SESSION['item_success'])): ?>
                             <th>#</th>
                             <th>Items Name</th>
                             <th>Unit</th>
-                            <th>Stock Type</th>
                             <th>Fund Cluster</th>
-                            <th>Initial Quantity</th>
-                            <th>Critical Level</th>
+                            <th>Quantity</th>
+                            <th>Reorder Point</th>
                             <th>Date Added</th>
+                            <th>Status</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -53,7 +53,6 @@ if (!empty($_SESSION['item_success'])): ?>
                                     <td><?= htmlspecialchars($row['item_name']) ?></td>
                                     <td><?= htmlspecialchars($row['description']) ?></td>
                                     <td><?= htmlspecialchars($row['unit']) ?></td>
-                                    <td><?= htmlspecialchars($row['stock_type']) ?></td>
                                     <td><?= htmlspecialchars($row['fund_cluster']) ?></td>
                                     <td><?= htmlspecialchars($row['initial_quantity']) ?></td>
                                     <td><?= htmlspecialchars($row['critical_level']) ?></td>
@@ -62,11 +61,10 @@ if (!empty($_SESSION['item_success'])): ?>
                                     <td>
                                     <button 
                                         class="btn btn-sm btn-info btn-update-item"
-                                        data-id="<?= htmlspecialchars($row['id']) ?>"
+                                        data-id="<?= htmlspecialchars($row['item_id']) ?>"
                                         data-name="<?= htmlspecialchars($row['item_name']) ?>"
                                         data-description="<?= htmlspecialchars($row['description']) ?>"
                                         data-unit="<?= htmlspecialchars($row['unit']) ?>"
-                                        data-stock_type="<?= htmlspecialchars($row['stock_type']) ?>"
                                         data-fund_cluster="<?= htmlspecialchars($row['fund_cluster']) ?>"
                                         data-quantity="<?= htmlspecialchars($row['initial_quantity']) ?>"
                                         data-critical="<?= htmlspecialchars($row['critical_level']) ?>"
@@ -90,4 +88,4 @@ if (!empty($_SESSION['item_success'])): ?>
     </div>
 </div>
 
-        <?php include __DIR__ . "/../modals/additems.modal.php"; ?>
+        <?php include __DIR__ . "/../modals/updateitems.modal.php"; ?>

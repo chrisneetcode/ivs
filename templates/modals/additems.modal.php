@@ -40,16 +40,6 @@
               <input type="number" name="initial_quantity" id="initial_quantity" class="form-control" required min="0">
             </div>
 
-            <!-- Stock Type -->
-            <div class="mb-3">
-              <label for="stock_type" class="form-label">Stock Type</label>
-              <select name="stock_type" id="stock_type" class="form-select" required>
-                <option value=""> Select Stock Type </option>
-                <option value="Office">Office</option>
-                <option value="SPLIT">SPLIT</option>
-              </select>
-            </div>
-
             <!-- Fund Cluster -->
             <div class="mb-3">
               <label for="fund_cluster" class="form-label">Fund Cluster</label>
@@ -62,7 +52,7 @@
 
             <!-- Critical Level -->
             <div class="mb-3">
-              <label for="critical_level" class="form-label">Critical Level</label>
+              <label for="critical_level" class="form-label">Reorder Point</label>
               <input type="number" name="critical_level" id="critical_level" class="form-control" required min="0">
             </div>
 
@@ -70,12 +60,11 @@
             <div class="mb-3">
               <label for="status" class="form-label">Status</label>
               <select name="status" id="status" class="form-select" required>
-                <option value=""> Select Status </option>
                 <option value="Available">Available</option>
-                <option value="Unavailable">Unavailable</option>
+                <option value="Out of Stock">Out of Stock</option>
+                <option value="Not Available">Not Available</option>
               </select>
             </div>
-
 
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
