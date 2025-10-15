@@ -7,9 +7,6 @@ $query = "SELECT * FROM tbl_item ORDER BY item_id ASC";
 $result = $conn->query($query);
 while ($row = $result->fetch_assoc()):
     
-// $query = "SELECT * FROM tbl_supplier ORDER BY supplier_id ASC";
-// $result = $conn->query($query);
-
 ?>
 
 <?php endwhile; ?>
@@ -71,12 +68,23 @@ while ($row = $result->fetch_assoc()):
 </div>
 
 
-      <div class="col-md-4">
+
+      <div class="col-md-3">
+        <label for="po_number" class="form-label">PO #</label>
+        <input type="text" class="form-control" id="po_number" name="po_number">
+      </div>
+      
+      <div class="col-md-3">
+        <label for="po_received" class="form-label">PO Received</label>
+        <input type="date" class="form-control" id="po_received" name="po_received" value="<?= date('Y-m-d') ?>" required>
+      </div>
+
+      <div class="col-md-3">
         <label for="remarks" class="form-label">Remarks (Optional)</label>
         <input type="text" class="form-control" id="remarks" name="remarks">
       </div>
 
-    <div class="col-md-4">
+    <div class="col-md-3">
         <label for="received_by" class="form-label">Received By</label>
 <input type="text" class="form-control" value="<?= $_SESSION['username'] ?? '' ?>" disabled>
 <input type="hidden" name="received_by" value="<?= $_SESSION['username'] ?? '' ?>">

@@ -21,6 +21,18 @@
             <input type="designation" name="designation" id="designation" class="form-control" required>
           </div>
 
+                    <!-- Chief Division -->
+          <div class="mb-3">
+            <label for="division_chief" class="form-label">Chief Division</label>
+            <input type="division_chief" name="division_chief" id="division_chief" class="form-control" required>
+          </div>
+
+                    <!-- Position -->
+          <div class="mb-3">
+            <label for="position" class="form-label">Position</label>
+            <input type="position" name="position" id="position" class="form-control" required>
+          </div>
+
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
           <button type="submit" class="btn btn-primary">Create Division</button>

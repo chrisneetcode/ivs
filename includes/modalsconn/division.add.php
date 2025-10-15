@@ -8,6 +8,8 @@ $conn = $db->conn;
 // Get and sanitize inputs
 $division_name = trim($_POST['division_name'] ?? '');
 $designation = trim($_POST['designation'] ?? '');
+$division_chief = trim($_POST['division_chief'] ?? '');
+$position = trim($_POST['position'] ?? '');
 
 
 // Basic validation
@@ -18,8 +20,8 @@ if (empty($division_name) || empty($designation)) {
 }
 
 // Insert into database
-$stmt = $conn->prepare("INSERT INTO tbl_division (division_name, designation) VALUES (?, ?)");
-$stmt->bind_param("ss", $division_name, $designation);
+$stmt = $conn->prepare("INSERT INTO tbl_division (division_name, designation, division_chief, position) VALUES (?, ?, ?, ?)");
+$stmt->bind_param("ssss", $division_name, $designation, $division_chief, $position);
 
 if ($stmt->execute()) {
     $_SESSION['success'] = "Division created successfully.";

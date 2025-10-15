@@ -41,7 +41,7 @@
 
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-          <button type="submit" class="btn btn-primary">Update Division</button>
+          <button type="submit" class="btn btn-primary">Update Supplier</button>
         </div>
       </div>
     </form>

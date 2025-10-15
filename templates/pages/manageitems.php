@@ -4,7 +4,8 @@ require_once __DIR__ . '/../../includes/conn.php';
 $db = new DBConnection();
 $conn = $db->conn;
 
-$query = "SELECT item_id, item_name, description, unit, fund_cluster, initial_quantity, critical_level, date_added FROM tbl_item";
+$query = "SELECT item_id, item_name, description, unit, fund_cluster, initial_quantity, critical_level, date_added FROM tbl_item
+ORDER BY date_added DESC";
 $result = $conn->query($query);
 
 
@@ -27,7 +28,6 @@ $result = $conn->query($query);
                 <table class="table table-bordered" id="itemsTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>#</th>
                             <th>Items Name</th>
                             <th>Description</th>
                             <th>Unit</th>
@@ -43,7 +43,6 @@ $result = $conn->query($query);
                         <?php if ($result && $result->num_rows > 0): ?>
                             <?php while ($row = $result->fetch_assoc()): ?>
                                 <tr>
-                                    <td><?= htmlspecialchars($row['item_id']) ?></td>
                                     <td><?= htmlspecialchars($row['item_name']) ?></td>
                                     <td><?= htmlspecialchars($row['description']) ?></td>
                                     <td><?= htmlspecialchars($row['unit']) ?></td>

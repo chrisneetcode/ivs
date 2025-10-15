@@ -14,9 +14,12 @@ $date_received = trim($_POST['date_received'] ?? '');
 $fund_cluster = trim($_POST['fund_cluster'] ?? '');
 $remarks = trim($_POST['remarks'] ?? '');
 $received_by = trim($_POST['received_by'] ?? '');
+$po_number = trim($_POST['po_number'] ?? '');
+$po_received = trim($_POST['po_received'] ?? '');
 
 // Basic validation
-if (empty($item_id) || empty($quantity_received) || empty($price) || empty($supplier_id) || empty($date_received) || empty($fund_cluster)) {
+if (empty($item_id) || empty($quantity_received) || empty($price) || empty($supplier_id) || empty($date_received) 
+    || empty($fund_cluster) || empty($po_number) || empty($po_received) ) {
     $_SESSION['error'] = "Please fill in all required fields.";
     header("Location: ../../index.php?page=stock-in-entry");
     exit();
@@ -28,9 +31,9 @@ $conn->begin_transaction();
 try {
     // Insert into tbl_stock_entry with quantity_received
     $stmt = $conn->prepare("INSERT INTO tbl_stock_entry 
-        (item_id, quantity_received, price, supplier_id, date_received, fund_cluster, remarks, received_by)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("iidissss", $item_id, $quantity_received, $price, $supplier_id, $date_received, $fund_cluster, $remarks, $received_by);
+        (item_id, quantity_received, price, supplier_id, date_received, fund_cluster, remarks, received_by, po_number, po_received)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("iidissssss", $item_id, $quantity_received, $price, $supplier_id, $date_received, $fund_cluster, $remarks, $received_by, $po_number, $po_received);
     $stmt->execute();
     $stmt->close();
 

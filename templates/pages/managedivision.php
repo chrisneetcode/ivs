@@ -4,7 +4,7 @@ require_once __DIR__ . '/../../includes/conn.php';
 $db = new DBConnection();
 $conn = $db->conn;
 
-$query = "SELECT division_id, division_name, designation FROM tbl_division";
+$query = "SELECT division_id, division_name, designation, division_chief, position FROM tbl_division";
 $result = $conn->query($query);
 
 
@@ -31,6 +31,8 @@ $result = $conn->query($query);
                             <th>#</th>
                             <th>Division Name</th>
                             <th>Designation</th>
+                            <th>Chief Division</th>
+                            <th>Position</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -41,12 +43,16 @@ $result = $conn->query($query);
                                     <td><?= htmlspecialchars($row['division_id']) ?></td>
                                     <td><?= htmlspecialchars($row['division_name']) ?></td>
                                     <td><?= htmlspecialchars($row['designation']) ?></td>
+                                    <td><?= htmlspecialchars($row['division_chief']) ?></td>
+                                    <td><?= htmlspecialchars($row['position']) ?></td>
                                     <td>
                                     <button 
                                     class="btn btn-sm btn-info btn-update-division"
                                     data-id="<?= htmlspecialchars($row['division_id']) ?>"
                                     data-name="<?= htmlspecialchars($row['division_name']) ?>"
                                     data-designation="<?= htmlspecialchars($row['designation']) ?>"
+                                    data-division_chief="<?= htmlspecialchars($row['division_chief']) ?>"
+                                    data-position="<?= htmlspecialchars($row['position']) ?>"
                                     data-bs-toggle="modal"
                                     data-bs-target="#updateDivisionModal">
                                     <i class="fas fa-edit"></i>

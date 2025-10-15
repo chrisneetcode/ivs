@@ -1,19 +1,18 @@
 <?php
-session_start();
+// === GLOBAL INIT: Session + DB + Security ===
+require_once __DIR__ . "/includes/conn.php"; // This includes session_start, DB, CSRF setup
+require_once __DIR__ . "/includes/security.php"; // Optional if not auto-included by conn.php
 
-if (!isset($_SESSION['user_id'])) {
-    header("Location: /ivs/user/login.php");
-    exit;
-}
+// === ENFORCE LOGIN ===
+require_login(); // Blocks unauthenticated users (redirects to login)
 
+// === PAGE ROUTING ===
 $currentPage = $_GET['page'] ?? 'dashboard';
-$page = basename($currentPage);
-
+$page = basename($currentPage); // Prevents path traversal like ?page=../../../etc/passwd
 
 $page_path = __DIR__ . "/templates/pages/{$page}.php";
 
-// Layout wrappers only once
-require_once __DIR__ . "/includes/auth.php";
+// === LAYOUT ===
 require_once __DIR__ . "/includes/header.php";
 ?>
 
@@ -40,17 +39,12 @@ require_once __DIR__ . "/includes/header.php";
             </div>
             <!-- End Page Content -->
 
-        <?php include __DIR__ . "/templates/modals/adddivision.modal.php"; ?>
-
+            <!-- Global Modals -->
+            <?php include __DIR__ . "/templates/modals/logout.modal.php"; ?>
+            <?php include __DIR__ . "/templates/modals/adddivision.modal.php"; ?>
         </div>
-        <!-- End Main Content -->
+
         <?php include __DIR__ . "/templates/modals/additems.modal.php"; ?>
-
-
-        <?php include __DIR__ . "/templates/modals/logout.modal.php"; ?>
-        
         <?php include __DIR__ . "/includes/footer.php"; ?>
     </div>
-    <!-- End Content Wrapper -->
 </div>
-<!-- End Page Wrapper -->

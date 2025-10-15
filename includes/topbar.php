@@ -4,6 +4,16 @@
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
                     </button>
+                                        <!-- Top Heading -->
+<li class="nav-item no-arrow mx-2 d-flex align-items-center">
+    <span class="nav-link fw-bold" 
+          style="font-size: 1.5rem; color: #000000; letter-spacing: 0.5px;">
+        <i class="fas fa-clipboard-list me-2" style="color: #1cc88a;"></i>
+        Supplies Inventory Management System (SIMS)
+    </span>
+</li>
+
+
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Nav Item - Search Dropdown (Visible Only XS) -->

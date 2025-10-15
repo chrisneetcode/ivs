@@ -2,7 +2,7 @@
         <ul class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="http://localhost/ivs/">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php?page=dashboard">
                 <div class="sidebar-brand-icon ">
                 <img src="isv/../src/images/dar_logo.png" alt="Logo" style="width: 70px; height: 55px;">
                 </div>
@@ -14,7 +14,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="http://localhost/ivs/">
+                <a class="nav-link" href="index.php?page=dashboard">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -26,24 +26,33 @@
             <div class="sidebar-heading">
                 Interface
             </div>
-                                    <!-- Nav Item - Inventory Management -->
-                        <li class="nav-item <?= ($currentPage === 'manageitems' || $currentPage === 'stock-in-entry') ? 'active' : '' ?>">
-                <a class="nav-link <?= ($currentPage === 'manageitems' || $currentPage === 'stock-in-entry') ? '' : 'collapsed' ?>" href="#" data-bs-toggle="collapse" data-bs-target="#inventoryPages"
-                    aria-expanded="<?= ($currentPage === 'manageitems' || $currentPage === 'stock-in-entry') ? 'true' : 'false' ?>" aria-controls="inventoryPages">
-                    <i class="fa-solid fa-gear"></i>
-                    <span>Inventory Management</span>
-                </a>
-                <div id="inventoryPages" class="collapse <?= ($currentPage === 'manageitems' || $currentPage === 'stock-in-entry') ? 'show' : '' ?>" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Inventory Management:</h6>
-                        <a class="collapse-item <?= $currentPage === 'manageitems' ? 'active' : '' ?>" href="index.php?page=manageitems">Manage Items</a>
-                        <div class="collapse-divider"></div>
-                        <h6 class="collapse-header">Stocks-In:</h6>
-                        <a class="collapse-item <?= $currentPage === 'stock-in-entry' ? 'active' : '' ?>" href="index.php?page=stock-in-entry">Stock-In Entry</a>
-                        <a class="collapse-item" href="">Stock-In History</a>
-                    </div>
-                </div>
-            </li>
+<!-- Nav Item - Inventory Management -->
+<li class="nav-item <?= ($currentPage === 'manageitems' || $currentPage === 'stock-in-entry' || $currentPage === 'stock-in-history') ? 'active' : '' ?>">
+    <a class="nav-link <?= ($currentPage === 'manageitems' || $currentPage === 'stock-in-entry' || $currentPage === 'stock-in-history') ? '' : 'collapsed' ?>" 
+       href="#" 
+       data-bs-toggle="collapse" 
+       data-bs-target="#inventoryPages"
+       aria-expanded="<?= ($currentPage === 'manageitems' || $currentPage === 'stock-in-entry' || $currentPage === 'stock-in-history') ? 'true' : 'false' ?>" 
+       aria-controls="inventoryPages">
+        <i class="fa-solid fa-gear"></i>
+        <span>Inventory Management</span>
+    </a>
+    <div id="inventoryPages" 
+         class="collapse <?= ($currentPage === 'manageitems' || $currentPage === 'stock-in-entry' || $currentPage === 'stock-in-history') ? 'show' : '' ?>" 
+         aria-labelledby="headingPages" 
+         data-parent="#accordionSidebar">
+         
+        <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Inventory Management:</h6>
+            <a class="collapse-item <?= $currentPage === 'manageitems' ? 'active' : '' ?>" href="index.php?page=manageitems">Manage Items</a>
+            
+            <div class="collapse-divider"></div>
+            <h6 class="collapse-header">Stocks-In:</h6>
+            <a class="collapse-item <?= $currentPage === 'stock-in-entry' ? 'active' : '' ?>" href="index.php?page=stock-in-entry">Stock-In Entry</a>
+            <a class="collapse-item <?= $currentPage === 'stock-in-history' ? 'active' : '' ?>" href="index.php?page=stock-in-history">Stock-In History</a>
+        </div>
+    </div>
+</li>
 
                                                 <!-- Nav Item - RIS Management -->
                 <li class="nav-item <?= $currentPage === '' ? 'active' : '' ?>">
@@ -55,8 +64,8 @@
                 <div id="risPages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">RIS:</h6>
-                        <a class="collapse-item" href="">Create RIS</a>
-                        <a class="collapse-item" href="">RIS List</a>
+                        <a class="collapse-item <?= $currentPage === 'create-ris' ? 'active' : '' ?>" href="index.php?page=create-ris">Create RIS</a>
+                        <a class="collapse-item <?= $currentPage === 'ris-list' ? 'active' : '' ?>" href="index.php?page=ris-list">RIS List</a>
                         <a class="collapse-item" href="">RIS Issuance</a>
                     </div>
                 </div>
@@ -72,8 +81,8 @@
                 <div id="stockledgerPages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Stock Ledger:</h6>
-                        <a class="collapse-item" href="">Add Ledger Entry</a>
-                        <a class="collapse-item" href="">Stock Card</a>
+                        <a class="collapse-item <?= $currentPage === 'itemsummary' ? 'active' : '' ?>" href="index.php?page=itemsummary">Item Summary</a>
+                        <a class="collapse-item <?= $currentPage === 'stockcard' ? 'active' : '' ?>" href="index.php?page=stockcard">Stock Card</a>
                     </div>
                 </div>
             </li>
